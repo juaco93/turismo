@@ -9,6 +9,7 @@ use App\Http\Requests\Admin\Alojamiento\IndexAlojamiento;
 use App\Http\Requests\Admin\Alojamiento\StoreAlojamiento;
 use App\Http\Requests\Admin\Alojamiento\UpdateAlojamiento;
 use App\Models\Alojamiento;
+use App\Models\Localidade;
 use Brackets\AdminListing\Facades\AdminListing;
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -37,11 +38,23 @@ class AlojamientosController extends Controller
             $request,
 
             // set columns to query
-            ['id', 'nombre', 'direccion', 'ciudad', 'departamento', 'provincia', 'telefono', 'web', 'email', 'tipo'],
+            ['direccion', 'email', 'id', 'localidad_id', 'nombre', 'telefono', 'tipo', 'web'],
 
             // set columns to searchIn
-            ['id', 'nombre', 'direccion', 'ciudad', 'departamento', 'provincia', 'telefono', 'web', 'email', 'tipo']
+            ['direccion', 'email', 'id', 'nombre', 'telefono', 'tipo', 'web'],
+
+            function ($query) use ($request) {
+                $query->with(['localidad']);
+
+                // add this line if you want to search by author attributes
+                $query->join('localidades', 'localidades.id', '=', 'alojamientos.localidad_id');
+
+                if($request->has('localidad')){
+                    $query->whereIn('localidad_id', $request->get('localidades'));
+                }
+            }
         );
+
 
         if ($request->ajax()) {
             if ($request->has('bulk')) {
@@ -65,7 +78,9 @@ class AlojamientosController extends Controller
     {
         $this->authorize('admin.alojamiento.create');
 
-        return view('admin.alojamiento.create');
+        return view('admin.alojamiento.create', [
+            'localidades' => Localidade::all(),
+        ]);
     }
 
     /**
@@ -78,6 +93,7 @@ class AlojamientosController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['localidad_id'] = $request->getLocalidadId();
 
         // Store the Alojamiento
         $alojamiento = Alojamiento::create($sanitized);
@@ -117,6 +133,7 @@ class AlojamientosController extends Controller
 
         return view('admin.alojamiento.edit', [
             'alojamiento' => $alojamiento,
+            'localidad' => Localidade::all(),
         ]);
     }
 
@@ -131,6 +148,7 @@ class AlojamientosController extends Controller
     {
         // Sanitize input
         $sanitized = $request->getSanitized();
+        $sanitized['localidad_id'] = $request->getLocalidadId();
 
         // Update changed values Alojamiento
         $alojamiento->update($sanitized);

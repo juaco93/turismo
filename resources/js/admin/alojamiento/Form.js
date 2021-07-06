@@ -5,17 +5,18 @@ Vue.component('alojamiento-form', {
     data: function() {
         return {
             form: {
-                nombre:  '' ,
                 direccion:  '' ,
-                ciudad:  '' ,
-                departamento:  '' ,
-                provincia:  '' ,
-                telefono:  '' ,
-                web:  '' ,
                 email:  '' ,
+                localidad:  '' ,
+                nombre:  '' ,
+                telefono:  '' ,
                 tipo:  '' ,
-                
-            }
+                web:  '' ,
+
+            },
+            props: [
+                'localidades'
+            ]
         }
     }
 

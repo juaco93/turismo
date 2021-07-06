@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AlojamientosController;
+use App\Http\Controllers\Admin\GastronomiasController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('alojamientos', [AlojamientosController::class, 'getAlojamientos']);
+Route::get('gastronomia', [GastronomiasController::class, 'getGastronomia']);
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

@@ -59,6 +59,113 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
     });
 });
 
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('gatronomia')->name('gatronomia/')->group(static function() {
+            Route::get('/',                                             'GatronomiaController@index')->name('index');
+            Route::get('/create',                                       'GatronomiaController@create')->name('create');
+            Route::post('/',                                            'GatronomiaController@store')->name('store');
+            Route::get('/{gatronomium}/edit',                           'GatronomiaController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'GatronomiaController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{gatronomium}',                               'GatronomiaController@update')->name('update');
+            Route::delete('/{gatronomium}',                             'GatronomiaController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('departamentos')->name('departamentos/')->group(static function() {
+            Route::get('/',                                             'DepartamentosController@index')->name('index');
+            Route::get('/create',                                       'DepartamentosController@create')->name('create');
+            Route::post('/',                                            'DepartamentosController@store')->name('store');
+            Route::get('/{departamento}/edit',                          'DepartamentosController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'DepartamentosController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{departamento}',                              'DepartamentosController@update')->name('update');
+            Route::delete('/{departamento}',                            'DepartamentosController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('localidades')->name('localidades/')->group(static function() {
+            Route::get('/',                                             'LocalidadesController@index')->name('index');
+            Route::get('/create',                                       'LocalidadesController@create')->name('create');
+            Route::post('/',                                            'LocalidadesController@store')->name('store');
+            Route::get('/{localidade}/edit',                            'LocalidadesController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'LocalidadesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{localidade}',                                'LocalidadesController@update')->name('update');
+            Route::delete('/{localidade}',                              'LocalidadesController@destroy')->name('destroy');
+        });
+    });
+});
+
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('gastronomias')->name('gastronomias/')->group(static function() {
+            Route::get('/',                                             'GastronomiasController@index')->name('index');
+            Route::get('/create',                                       'GastronomiasController@create')->name('create');
+            Route::post('/',                                            'GastronomiasController@store')->name('store');
+            Route::get('/{gastronomium}/edit',                          'GastronomiasController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'GastronomiasController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{gastronomium}',                              'GastronomiasController@update')->name('update');
+            Route::delete('/{gastronomium}',                            'GastronomiasController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('provincias')->name('provincias/')->group(static function() {
+            Route::get('/',                                             'ProvinciasController@index')->name('index');
+            Route::get('/create',                                       'ProvinciasController@create')->name('create');
+            Route::post('/',                                            'ProvinciasController@store')->name('store');
+            Route::get('/{provincium}/edit',                            'ProvinciasController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'ProvinciasController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{provincium}',                                'ProvinciasController@update')->name('update');
+            Route::delete('/{provincium}',                              'ProvinciasController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('localidades')->name('localidades/')->group(static function() {
+            Route::get('/',                                             'LocalidadesController@index')->name('index');
+            Route::get('/create',                                       'LocalidadesController@create')->name('create');
+            Route::post('/',                                            'LocalidadesController@store')->name('store');
+            Route::get('/{localidade}/edit',                            'LocalidadesController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'LocalidadesController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{localidade}',                                'LocalidadesController@update')->name('update');
+            Route::delete('/{localidade}',                              'LocalidadesController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('departamentos')->name('departamentos/')->group(static function() {
+            Route::get('/',                                             'DepartamentosController@index')->name('index');
+            Route::get('/create',                                       'DepartamentosController@create')->name('create');
+            Route::post('/',                                            'DepartamentosController@store')->name('store');
+            Route::get('/{departamento}/edit',                          'DepartamentosController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'DepartamentosController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{departamento}',                              'DepartamentosController@update')->name('update');
+            Route::delete('/{departamento}',                            'DepartamentosController@destroy')->name('destroy');
+        });
+    });
+});
+
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
     Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
@@ -77,14 +184,29 @@ Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->gro
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
     Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
-        Route::prefix('gatronomia')->name('gatronomia/')->group(static function() {
-            Route::get('/',                                             'GatronomiaController@index')->name('index');
-            Route::get('/create',                                       'GatronomiaController@create')->name('create');
-            Route::post('/',                                            'GatronomiaController@store')->name('store');
-            Route::get('/{gatronomium}/edit',                           'GatronomiaController@edit')->name('edit');
-            Route::post('/bulk-destroy',                                'GatronomiaController@bulkDestroy')->name('bulk-destroy');
-            Route::post('/{gatronomium}',                               'GatronomiaController@update')->name('update');
-            Route::delete('/{gatronomium}',                             'GatronomiaController@destroy')->name('destroy');
+        Route::prefix('alojamientos')->name('alojamientos/')->group(static function() {
+            Route::get('/',                                             'AlojamientoController@index')->name('index');
+            Route::get('/create',                                       'AlojamientoController@create')->name('create');
+            Route::post('/',                                            'AlojamientoController@store')->name('store');
+            Route::get('/{alojamiento}/edit',                           'AlojamientoController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'AlojamientoController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{alojamiento}',                               'AlojamientoController@update')->name('update');
+            Route::delete('/{alojamiento}',                             'AlojamientoController@destroy')->name('destroy');
+        });
+    });
+});
+
+/* Auto-generated admin routes */
+Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(static function () {
+    Route::prefix('admin')->namespace('App\Http\Controllers\Admin')->name('admin/')->group(static function() {
+        Route::prefix('alojamientos')->name('alojamientos/')->group(static function() {
+            Route::get('/',                                             'AlojamientosController@index')->name('index');
+            Route::get('/create',                                       'AlojamientosController@create')->name('create');
+            Route::post('/',                                            'AlojamientosController@store')->name('store');
+            Route::get('/{alojamiento}/edit',                           'AlojamientosController@edit')->name('edit');
+            Route::post('/bulk-destroy',                                'AlojamientosController@bulkDestroy')->name('bulk-destroy');
+            Route::post('/{alojamiento}',                               'AlojamientosController@update')->name('update');
+            Route::delete('/{alojamiento}',                             'AlojamientosController@destroy')->name('destroy');
         });
     });
 });

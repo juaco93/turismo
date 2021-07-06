@@ -30,7 +30,7 @@
                                     </div>
                                     <div class="col-sm-auto form-group ">
                                         <select class="form-control" v-model="pagination.state.per_page">
-                                            
+
                                             <option value="10">10</option>
                                             <option value="25">25</option>
                                             <option value="100">100</option>
@@ -49,21 +49,19 @@
                                             </label>
                                         </th>
 
-                                        <th is='sortable' :column="'id'">{{ trans('admin.alojamiento.columns.id') }}</th>
-                                        <th is='sortable' :column="'nombre'">{{ trans('admin.alojamiento.columns.nombre') }}</th>
                                         <th is='sortable' :column="'direccion'">{{ trans('admin.alojamiento.columns.direccion') }}</th>
-                                        <th is='sortable' :column="'ciudad'">{{ trans('admin.alojamiento.columns.ciudad') }}</th>
-                                        <th is='sortable' :column="'departamento'">{{ trans('admin.alojamiento.columns.departamento') }}</th>
-                                        <th is='sortable' :column="'provincia'">{{ trans('admin.alojamiento.columns.provincia') }}</th>
-                                        <th is='sortable' :column="'telefono'">{{ trans('admin.alojamiento.columns.telefono') }}</th>
-                                        <th is='sortable' :column="'web'">{{ trans('admin.alojamiento.columns.web') }}</th>
                                         <th is='sortable' :column="'email'">{{ trans('admin.alojamiento.columns.email') }}</th>
+                                        <th is='sortable' :column="'id'">{{ trans('admin.alojamiento.columns.id') }}</th>
+                                        <th is='sortable' :column="'localidad_id'">{{ trans('admin.alojamiento.columns.localidad_id') }}</th>
+                                        <th is='sortable' :column="'nombre'">{{ trans('admin.alojamiento.columns.nombre') }}</th>
+                                        <th is='sortable' :column="'telefono'">{{ trans('admin.alojamiento.columns.telefono') }}</th>
                                         <th is='sortable' :column="'tipo'">{{ trans('admin.alojamiento.columns.tipo') }}</th>
+                                        <th is='sortable' :column="'web'">{{ trans('admin.alojamiento.columns.web') }}</th>
 
                                         <th></th>
                                     </tr>
                                     <tr v-show="(clickedBulkItemsCount > 0) || isClickedAll">
-                                        <td class="bg-bulk-info d-table-cell text-center" colspan="12">
+                                        <td class="bg-bulk-info d-table-cell text-center" colspan="10">
                                             <span class="align-middle font-weight-light text-dark">{{ trans('brackets/admin-ui::admin.listing.selected_items') }} @{{ clickedBulkItemsCount }}.  <a href="#" class="text-primary" @click="onBulkItemsClickedAll('/admin/alojamientos')" v-if="(clickedBulkItemsCount < pagination.state.total)"> <i class="fa" :class="bulkCheckingAllLoader ? 'fa-spinner' : ''"></i> {{ trans('brackets/admin-ui::admin.listing.check_all_items') }} @{{ pagination.state.total }}</a> <span class="text-primary">|</span> <a
                                                         href="#" class="text-primary" @click="onBulkItemsClickedAllUncheck()">{{ trans('brackets/admin-ui::admin.listing.uncheck_all_items') }}</a>  </span>
 
@@ -82,17 +80,15 @@
                                             </label>
                                         </td>
 
-                                    <td>@{{ item.id }}</td>
-                                        <td>@{{ item.nombre }}</td>
-                                        <td>@{{ item.direccion }}</td>
-                                        <td>@{{ item.ciudad }}</td>
-                                        <td>@{{ item.departamento }}</td>
-                                        <td>@{{ item.provincia }}</td>
-                                        <td>@{{ item.telefono }}</td>
-                                        <td>@{{ item.web }}</td>
+                                    <td>@{{ item.direccion }}</td>
                                         <td>@{{ item.email }}</td>
+                                        <td>@{{ item.id }}</td>
+                                        <td>@{{ item.localidad.nombre }}</td>
+                                        <td>@{{ item.nombre }}</td>
+                                        <td>@{{ item.telefono }}</td>
                                         <td>@{{ item.tipo }}</td>
-                                        
+                                        <td>@{{ item.web }}</td>
+
                                         <td>
                                             <div class="row no-gutters">
                                                 <div class="col-auto">

@@ -26,16 +26,14 @@ class UpdateAlojamiento extends FormRequest
     public function rules(): array
     {
         return [
-            'nombre' => ['sometimes', 'string'],
             'direccion' => ['sometimes', 'string'],
-            'ciudad' => ['sometimes', 'string'],
-            'departamento' => ['sometimes', 'string'],
-            'provincia' => ['sometimes', 'string'],
-            'telefono' => ['sometimes', 'string'],
-            'web' => ['sometimes', 'string'],
             'email' => ['sometimes', 'email', 'string'],
+            'localidad' => ['required'],
+            'nombre' => ['sometimes', 'string'],
+            'telefono' => ['sometimes', 'string'],
             'tipo' => ['sometimes', 'string'],
-            
+            'web' => ['sometimes', 'string'],
+
         ];
     }
 
@@ -52,5 +50,13 @@ class UpdateAlojamiento extends FormRequest
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getLocalidadId()
+    {
+        if ($this->has('localidad')){
+            return $this->get('localidad')['id'];
+        }
+        return null;
     }
 }

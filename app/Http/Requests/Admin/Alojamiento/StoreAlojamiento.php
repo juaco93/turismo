@@ -26,16 +26,14 @@ class StoreAlojamiento extends FormRequest
     public function rules(): array
     {
         return [
-            'nombre' => ['required', 'string'],
             'direccion' => ['required', 'string'],
-            'ciudad' => ['required', 'string'],
-            'departamento' => ['required', 'string'],
-            'provincia' => ['required', 'string'],
-            'telefono' => ['required', 'string'],
-            'web' => ['required', 'string'],
             'email' => ['required', 'email', 'string'],
+            'localidad' => ['required'],
+            'nombre' => ['required', 'string'],
+            'telefono' => ['required', 'string'],
             'tipo' => ['required', 'string'],
-            
+            'web' => ['required', 'string'],
+
         ];
     }
 
@@ -51,5 +49,13 @@ class StoreAlojamiento extends FormRequest
         //Add your code for manipulation with request data here
 
         return $sanitized;
+    }
+
+    public function getLocalidadId()
+    {
+        if ($this->has('localidad')){
+            return $this->get('localidad')['id'];
+        }
+        return null;
     }
 }

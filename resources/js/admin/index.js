@@ -1,6 +1,9 @@
 import './admin-user';
 import './profile-edit-profile';
 import './profile-edit-password';
+import './departamento';
+import './localidade';
+import './gastronomia';
+import './provincia';
 import './alojamiento';
-import './gastronomium';
-import './gatronomium';
+import './alojamiento';

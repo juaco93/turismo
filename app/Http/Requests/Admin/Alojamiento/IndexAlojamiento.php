@@ -25,7 +25,7 @@ class IndexAlojamiento extends FormRequest
     public function rules(): array
     {
         return [
-            'orderBy' => 'in:id,nombre,direccion,ciudad,departamento,provincia,telefono,web,email,tipo|nullable',
+            'orderBy' => 'in:direccion,email,id,localidad_id,nombre,telefono,tipo,web|nullable',
             'orderDirection' => 'in:asc,desc|nullable',
             'search' => 'string|nullable',
             'page' => 'integer|nullable',
